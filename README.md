@@ -2,11 +2,11 @@
 
 This repository acts as a template for the challenges associated with Monash DeepNeuron's HPC Training Content.
 
-## Challenges
+## About Challenges
 
 As you progress through each chapter you will be given a small set of challenges to complete. In order to complete the challenges there is a complementary GitHub template repository found on the Monash DeepNeuron GitHub organisation called [HPC Training Challenges](https://github.com/MonashDeepNeuron/HPC-Training-Challenges). As a template you are able to create your own copy of the repository and complete the challenges completely independent of the other recruits.
 
-### Setting Up Challenges Repository
+## Setting Up Challenges Repository
 
 To get setup:
 
@@ -30,8 +30,17 @@ git add .  # Add any untracked or modified files
 git push origin  # Push to GitHub
 ```
 
-### Challenges Repository
+## Challenges Repository Structure
 
 The challenges repository is broken down into different directories for each chapter. For each chapter their will be a series of additional directories corresponding to the specific challenge. These will contain any and all the resources needed for the challenge except programs that you are required to complete.
 
 <!-- For some of the challenges, GitHub will have some automatic tests that run when you push your changes back up to GitHub. -->
+
+## Adding Trainers as Collaborators for Assessment
+
+You will need to add the HPC Training team as contributors to your copy of the repository as it is private meaning we cannot access it otherwise. To add us, open the repos GitHub page (your copy not Monash DeepNeuron's) and navigate to the settings tab. On the options list to the left you'll click the 'collaborators' option. There will be a green button labelled 'Add people'. Click this to bring up the pop-up. Add the following usernames as collaborators (they may need to be entered separately).
+
+- oraqlle
+- Ozzywap
+- UnciaBit
+- jasparm
