@@ -1,3 +1,7 @@
+'''
+This script is used to train a AlexNet on the STL10 dataset. It is based on previous HPC training materials by (https://github.com/Yusuke710)
+'''
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
