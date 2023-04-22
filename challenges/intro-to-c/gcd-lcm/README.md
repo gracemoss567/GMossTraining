@@ -1,4 +1,4 @@
-# Challenge 3 - GCD & LCM
+# Challenge 4 - GCD & LCM
 
 ## Expected Output
 
