@@ -40,7 +40,7 @@ The challenges repository is broken down into different directories for each cha
 
 You will need to add the HPC Training team as contributors to your copy of the repository as it is private meaning we cannot access it otherwise. To add us, open the repos GitHub page (your copy not Monash DeepNeuron's) and navigate to the settings tab. On the options list to the left you'll click the 'collaborators' option. There will be a green button labelled 'Add people'. Click this to bring up the pop-up. Add the following usernames as collaborators (they may need to be entered separately).
 
-- oraqlle
-- Ozzywap
-- UnciaBit
-- jasparm
+- @oraqlle
+- @Ozzywap
+- @UnciaBit
+- @jasparm
