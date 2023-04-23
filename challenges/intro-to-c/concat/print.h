@@ -5,11 +5,11 @@
 
 void print(int arr[], unsigned int sz)
 {
-    printf("{ %d, ");
+    printf("{ ");
     for (unsigned int i = 0; i < sz - 1; ++i)
         printf("%d, ", arr[i]);
 
-    puts("}\n");
+    printf("%d }\n", arr[sz - 1]);
 }
 
-#endif  /// PRINT_H
+#endif /// PRINT_H
