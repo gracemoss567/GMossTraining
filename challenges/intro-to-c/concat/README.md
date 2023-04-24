@@ -1,4 +1,4 @@
-# Challenge 6 - Array Concatenation
+# Challenge 8 - Array Concatenation
 
 ## Expected Output
 

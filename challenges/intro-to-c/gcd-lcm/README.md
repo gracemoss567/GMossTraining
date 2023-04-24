@@ -1,4 +1,4 @@
-# Challenge 3 - GCD & LCM
+# Challenge 4 - GCD & LCM
 
 ## Expected Output
 
@@ -13,6 +13,6 @@ gcd(546543367, 358746341) = 1
 ### LCM
 
 ```sh
-lcm(12, 45) = 300
+lcm(12, 45) = 180
 lcm(1253, 4567) = 5722451
 ```

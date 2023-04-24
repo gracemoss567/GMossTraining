@@ -1,4 +1,4 @@
-# Challenge 5 - Sum & Product
+# Challenge 7 - Sum & Product
 
 ## Expected Output
 

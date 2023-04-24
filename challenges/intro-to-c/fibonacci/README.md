@@ -1,4 +1,4 @@
-# Challenge 2 - Fibonacci
+# Challenge 3 - Fibonacci
 
 ## Expected Output
 

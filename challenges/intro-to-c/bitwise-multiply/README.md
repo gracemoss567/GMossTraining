@@ -1,4 +1,4 @@
-# Challenge 4 - Bitwise Multiply
+# Challenge 6 - Bitwise Multiply
 
 ## Expected Output
 
