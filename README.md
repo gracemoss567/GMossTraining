@@ -10,7 +10,7 @@ As you progress through each chapter you will be given a small set of challenges
 
 To get setup:
 
-- Click the link above to got to the repository on GitHub.
+- Click the link above to go to the repository on GitHub.
 - Click 'Use this template' button (green) and select 'Create a new repository'.
 - Give it a name and make sure it is private.
 - Ensure you are copying it to your personal account and not the Monash DeepNeuron organisation. There will be a dropdown next to where you give the repo a name from which you can select your account.
@@ -20,10 +20,12 @@ To get setup:
 - Run:
 
 ```sh
-git clone <repo-link>
-cd <repo-name>
-git remote add upstream <repo-link>
-git remote set-url --push upstream DISABLE
+git clone <repo-link>                                   # Clone to your machine
+cd <repo-name>                                          # Enter clone's directory
+git remote add upstream <repo-link>                     # Create link to template called 'upstream' 
+git remote set-url --push upstream DISABLE              # Disable pushing to template
+git fetch upstream                                      # Sync with 'upstream'
+git merge upstream/main --allow-unrelated-histories     # Merge 'upstream' main branch with your main
 code .
 ```
 
@@ -34,7 +36,7 @@ Once you completed a challenge or made some changes you want to save to your rem
 ```sh
 git add .               # Add any untracked or modified files
 git commit -m "msg"     # Commit changes locally with a message
-git push origin         # Push to GitHub
+git push origin         # Push to your GitHub repository
 ```
 
 If you need to sync your local repository with the remote version you can either fetch the changes to add them to the logs without modifying the codebase or pull them to integrate the changes into your version.
@@ -44,11 +46,15 @@ git fetch origin    # Sync changes with remote without integrating (downloading)
 git pull origin     # Sync and integrate remote changes locally
 ```
 
-> Note:
->
-> - If you need to sync changes from the template repository use the same commands but replace `origin` with `upstream`.
+In order to sync your copy of the challenges repository with the remote template you must re-fetch the changes from `upstream` and then merge the `upstream` remote with your local repository.
 
-## Challenges Repository Structure
+```sh
+git merge upstream/main --allow-unrelated-histories
+```
+
+> Note: Look at the README.md of the repo for the for more instructions.
+
+## Challenges Repository
 
 The challenges repository is broken down into different directories for each chapter. For each chapter their will be a series of additional directories corresponding to the specific challenge. These will contain any and all the resources needed for the challenge except programs that you are required to complete.
 
