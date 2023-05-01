@@ -1,28 +1,15 @@
 #include <stdio.h>
-//add code here
-
-//
 #include <unistd.h>
 #include <time.h>
 
+// Step 1: Implement a non-parallel version of this program
+// Step 2: Measure the time it takes to run on large arrays
+// Step 3: Implement a parallel version of this program
+// Step 4: Measure the time again and observe the difference
+
 int main() {
 
-    int array[20];
-    time_t start;
-    time_t end;
+    // Implement a program where it creates an array of 1000000 (or any large number) of elements
 
-    start = time(NULL);
-    // add code here
-        
-    //          
-    for(int i=0; i<sizeof(array)/sizeof(int); ++i) 
-    {
-        array[i] = i;
-        printf("%d\n", array[i]);
-        sleep(1);
-    }  
-    end = time(NULL); 
-
-    printf("took %ld seconds to process\n", end - start);    
     return 0;
 }
