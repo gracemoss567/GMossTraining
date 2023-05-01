@@ -30,8 +30,7 @@
 #include <stdlib.h>
 #include "laplace2d.h"
 
-int main(int argc, char** argv)
-{
+int main(int argc, char **argv) {
     const int n = 2000;
     const int m = 2000;
     const int iter_max = 500;
@@ -39,8 +38,10 @@ int main(int argc, char** argv)
     const double tol = 1.0e-6;
     double error = 1.0;
 
-    double *restrict A    = (double*)malloc(sizeof(double)*n*m);
-    double *restrict Anew = (double*)malloc(sizeof(double)*n*m);
+    double *restrict
+    A = (double *) malloc(sizeof(double) * n * m);
+    double *restrict
+    Anew = (double *) malloc(sizeof(double) * n * m);
 
     initialize(A, Anew, m, n);
 
@@ -49,12 +50,11 @@ int main(int argc, char** argv)
     double start = omp_get_wtime();
     int iter = 0;
 
-    while ( error > tol && iter < iter_max )
-    {
+    while (error > tol && iter < iter_max) {
         error = calcNext(A, Anew, m, n);
         swap(A, Anew, m, n);
 
-        if(iter % 100 == 0) printf("%5d, %0.6f\n", iter, error);
+        if (iter % 100 == 0) printf("%5d, %0.6f\n", iter, error);
 
         iter++;
 
