@@ -14,11 +14,15 @@ Submit the above script to the queue by writing another SLURM bash script. Check
 
 ## Challenge 4
 
-Reuqest an interactive node and attach to it. Once you have done this, install python using conda.
+Request an interactive node and attach to it. Once you have done this, install python 3.7 using conda.
 
 ## Challenge 5
 
-Clone and run [this](./dl_on_m3/alexnet_stl10.py) script. You will need to first install the dependencies for it.
+Clone and run [this](./dl_on_m3/alexnet_stl10.py) script. You will need to first install the dependencies for it. You don't need to wait for it to finish, just make sure it is working. You will know its working if it starts listing out the loss and accuracy for each epoch. You can stop it by pressing `ctrl + c`.
+
+Once you have confirmed that it is working, deactivate and delete the conda environment, and then end the interactive session.
+
+> Hint: I have included the dependencies and their versions (make sure you install the right version) in the `requirements.txt` file. You will need python 3.7 to run this script.
 
 ## Challenge 6
 
@@ -28,8 +32,14 @@ Go back to the login node. Now you are going to put it all together. Write a bas
 - (2) installs python using conda
 - (3) clones and runs the above script
 
-Check the output of the script to make sure it ran correctly. Does it match the output of the script you ran in challenge 5?
+Let this run fully. Check the output of the script to make sure it ran correctly. Does it match the output of the script you ran in challenge 5?
+> Hint: You can check the output of the script at any time by `cat`ing the output file. The script does not need to have finished running for you to do this.
 
 ## Challenge 7
 
 Edit your submission script so that you get a gpu node, and run the script using the gpu.
+> Hint: Use the m3h partition
+
+## Challenge 8
+
+Now you want to clean up your working directory. First, push your solutions to your challenges repo. Then, delete the challenges directory, as well as the conda environment you created in challenge 6.
