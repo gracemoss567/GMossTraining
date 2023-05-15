@@ -25,47 +25,48 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <string.h>
-#include <stdio.h>
+#include <math.h>
 #include <stdlib.h>
-#include "laplace2d.h"
+#include <string.h>
 
-int main(int argc, char **argv) {
-    const int n = 2000;
-    const int m = 2000;
-    const int iter_max = 500;
+#define OFFSET(x, y, m) (((x) * (m)) + (y))
 
-    const double tol = 1.0e-6;
-    double error = 1.0;
+void initialize(double* restrict A, double* restrict Anew, int m, int n)
+{
+    memset(A, 0, n * m * sizeof(double));
+    memset(Anew, 0, n * m * sizeof(double));
 
-    double *restrict
-    A = (double *) malloc(sizeof(double) * n * m);
-    double *restrict
-    Anew = (double *) malloc(sizeof(double) * n * m);
-
-    initialize(A, Anew, m, n);
-
-    printf("Jacobi relaxation Calculation: %d x %d mesh\n", n, m);
-
-    double start = omp_get_wtime();
-    int iter = 0;
-
-    while (error > tol && iter < iter_max) {
-        error = calcNext(A, Anew, m, n);
-        swap(A, Anew, m, n);
-
-        if (iter % 100 == 0) printf("%5d, %0.6f\n", iter, error);
-
-        iter++;
-
+    for (int i = 0; i < m; i++) {
+        A[i] = 100.0;
+        Anew[i] = 100.0;
     }
+}
 
-    double runtime = omp_get_wtime() - start;
+double calcNext(double* restrict A, double* restrict Anew, int m, int n)
+{
+    double error = 0.0;
 
+    for (int j = 1; j < n - 1; j++) {
+        for (int i = 1; i < m - 1; i++) {
+            Anew[OFFSET(j, i, m)] = 0.25 * (A[OFFSET(j, i + 1, m)] + A[OFFSET(j, i - 1, m)] + A[OFFSET(j - 1, i, m)] + A[OFFSET(j + 1, i, m)]);
+            error = fmax(error, fabs(Anew[OFFSET(j, i, m)] - A[OFFSET(j, i, m)]));
+        }
+    }
+    return error;
+}
 
-    printf(" total: %f s\n", runtime);
+void swap(double* restrict A, double* restrict Anew, int m, int n)
+{
 
-    deallocate(A, Anew);
+    for (int j = 1; j < n - 1; j++) {
+        for (int i = 1; i < m - 1; i++) {
+            A[OFFSET(j, i, m)] = Anew[OFFSET(j, i, m)];
+        }
+    }
+}
 
-    return 0;
+void deallocate(double* restrict A, double* restrict Anew)
+{
+    free(A);
+    free(Anew);
 }

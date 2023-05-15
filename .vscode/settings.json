@@ -2,6 +2,18 @@
     "files.associations": {
         "*.tpl": "cpp",
         "*.bazel": "starlark",
-        "print.h": "c"
+        "*.rddl": "txt",
+        "*.slurm": "shellscript",
+        "print.h": "c",
+        "array": "c",
+        "deque": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "stdlib.h": "c",
+        "laplace2d-parallel.h": "c",
+        "math.h": "c"
     }
 }
