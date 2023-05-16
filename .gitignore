@@ -59,4 +59,11 @@ dkms.conf
 # Makefiles
 !Makefile
 
+# IDE settings
 .vscode
+
+# Test input text files
+challenges/distributed-computing/mergesort/unsorted.txt
+challenges/distributed-computing/mergesort/sorted.txt
+challenges/distributed-computing/sum/input.txt
+challenges/distributed-computing/sum/output.txt

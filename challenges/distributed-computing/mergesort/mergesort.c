@@ -19,9 +19,14 @@ int main(int argc, char** argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
+    read_input("./unsorted.txt", &input[0], N);
+
     // Implementation
 
-    read_input("./unsorted.txt", &input[0], N);
+    if (check("./sorted.txt", &sorted[0], N))
+        puts("Mergsort ran successfully!");
+    else
+        puts("Mergsort failed!");
 
     MPI_Barrier(MPI_COMM_WORLD);
     MPI_Finalize();

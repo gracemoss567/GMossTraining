@@ -3,18 +3,17 @@
 #include <mpi.h>
 #include <stdio.h>
 
-#define N 1000000
-
 int world_size = 0;
 int world_rank = 0;
 
-double input[N] = { 0.0 };
-
 MPI_Status status;
 
-int main()
+int main(int argc, char* argv[])
 {
-    MPI_Init(NULL, NULL);
+    unsigned N = atoi(argv[1]);
+    double* input = (double*)malloc(N * sizeof(double));
+
+    MPI_INIT(&argc, &argv[0]);
 
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
