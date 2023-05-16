@@ -3,5 +3,5 @@
 ## Expected Output
 
 ```sh
-Sum = 
+Sum = <sum>
 ```

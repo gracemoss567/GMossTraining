@@ -68,17 +68,17 @@ auto sum() noexcept -> void
     write(sum_path / "output.txt", output);
 }
 
-auto partial_sum() noexcept -> void
-{
-    auto input = std::vector<double>(problem_size, 0.0);
-    generate(input);
+// auto partial_sum() noexcept -> void
+// {
+//     auto input = std::vector<double>(problem_size, 0.0);
+//     generate(input);
 
-    auto output = std::vector<double> {};
-    std::partial_sum(input.cbegin(), input.cend(), std::back_inserter(output));
+//     auto output = std::vector<double> {};
+//     std::partial_sum(input.cbegin(), input.cend(), std::back_inserter(output));
 
-    write(partial_sum_path / "input.txt", input);
-    write(partial_sum_path / "check.txt", output);
-}
+//     write(partial_sum_path / "input.txt", input);
+//     write(partial_sum_path / "check.txt", output);
+// }
 
 auto mergesort() noexcept -> void
 {
@@ -101,7 +101,7 @@ auto mergesort() noexcept -> void
 int main()
 {
     make::sum();
-    make::partial_sum();
+    // make::partial_sum();
     make::mergesort();
 
     return 0;
