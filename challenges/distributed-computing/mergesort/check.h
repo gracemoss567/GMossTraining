@@ -1,6 +1,7 @@
 #ifndef CHECK_H
 #define CHECK_H
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
