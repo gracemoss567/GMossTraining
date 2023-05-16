@@ -30,7 +30,6 @@ constexpr std::size_t default_problem_size = 1'000'000uL;
 
 fs::path main_path = fs::current_path() / "challenges" / "distributed-computing";
 fs::path sum_path = main_path / "sum";
-// fs::path partial_sum_path = main_path / "partial-sum";
 fs::path mergesort_path = main_path / "mergesort";
 
 auto gen = std::mt19937 { std::random_device {}() };
@@ -69,17 +68,6 @@ auto sum(std::vector<double>& buffer) -> void
     write(sum_path / "output.txt", sum);
 }
 
-// auto partial_sum(std::vector<double>& buffer) -> void
-// {
-//     generate(buffer);
-
-//     write(partial_sum_path / "input.txt", buffer);
-//     std::partial_sum(buffer.cbegin(), buffer.cend(), buffer.begin());
-//     buffer.shrink_to_fit();
-
-//     write(partial_sum_path / "check.txt", buffer);
-// }
-
 auto mergesort(std::vector<double>& buffer) -> void
 {
     generate(buffer);
@@ -95,7 +83,7 @@ auto mergesort(std::vector<double>& buffer) -> void
     write(mergesort_path / "sorted.txt", buffer);
 }
 
-} // make
+} // namespace make
 
 int main(int argc, char* argv[])
 {
@@ -109,8 +97,7 @@ int main(int argc, char* argv[])
     auto buffer = std::vector<double>(problem_size, 0.0);
 
     make::sum(buffer);
-    // make::partial_sum(buffer);
-    // make::mergesort(buffer);
+    make::mergesort(buffer);
 
     return 0;
 }
