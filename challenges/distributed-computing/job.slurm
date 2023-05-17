@@ -2,6 +2,7 @@
 
 #SBATCH --job-name=
 #SBATCH --time=0:05:00
+#SBATCH --mem=1GB
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1

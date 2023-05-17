@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
     unsigned N = atoi(argv[1]);
     double* input = (double*)malloc(N * sizeof(double));
 
-    MPI_INIT(&argc, &argv[0]);
+    MPI_Init(&argc, &argv);
 
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
