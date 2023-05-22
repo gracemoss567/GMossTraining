@@ -8,12 +8,13 @@
 // by in some of the challenges.
 //
 // Build
-// $ g++ -std=c++20 -o bin/generate generate.cpp
+// $ g++ -std=c++20 -o bin/generate-lazy generate-lazy.cpp
 //
 // Run
-// $ bin/generate
+// $ bin/generate-lazy
 
 #include <algorithm>
+#include <chrono>
 #include <concepts>
 #include <filesystem>
 #include <fstream>
@@ -25,6 +26,8 @@
 #include <vector>
 
 namespace fs = std::filesystem;
+
+using clock = std::chrono::high_resolution_clock;
 
 constexpr std::size_t default_problem_size = 1'000'000uL;
 
@@ -45,6 +48,8 @@ auto write(const fs::path& filename, Range&& data) -> void
         std::ranges::copy(data, std::ostream_iterator<double>(file, "\n"));
     } else
         std::clog << "Failed to open file" << filename << std::endl;
+
+    file.close();
 }
 
 auto write(const fs::path& filename, const double& data) -> void
@@ -61,7 +66,7 @@ namespace make {
 
 auto sum(std::size_t problem_size) -> void
 {
-    auto nums = std::views::iota(0)
+    auto auto nums = std::views::iota(0)
         | generate
         | std::views::take(problem_size)
         | std::views::common;
@@ -72,20 +77,20 @@ auto sum(std::size_t problem_size) -> void
     write(sum_path / "output.txt", sum);
 }
 
-// auto mergesort(std::size_t problem_size) -> void
-// {
-//     auto nums = std::views::iota(0) | generate | std::views::take(problem_size);
-//     write(mergesort_path / "unsorted.txt", nums);
+auto mergesort(std::size_t problem_size) -> void
+{
+    auto nums = std::views::iota(0) | generate | std::views::take(problem_size);
+    write(mergesort_path / "unsorted.txt", nums);
 
-//     std::ranges::sort(nums);
+    std::ranges::sort(nums);
 
-//     if (!std::ranges::is_sorted(nums)) {
-//         std::clog << "Didn't sort input" << std::endl;
-//         return;
-//     }
+    if (!std::ranges::is_sorted(nums)) {
+        std::clog << "Didn't sort input" << std::endl;
+        return;
+    }
 
-//     write(mergesort_path / "sorted.txt", nums);
-// }
+    write(mergesort_path / "sorted.txt", nums);
+}
 
 } // namespace make
 
@@ -98,10 +103,8 @@ int main(int argc, char* argv[])
         problem_size = std::ranges::clamp(problem_size, default_problem_size, std::vector<double> {}.max_size());
     }
 
-    // auto buffer = std::vector<double>(problem_size, 0.0);
-
     make::sum(problem_size);
-    // make::mergesort(problem_size);
+    make::mergesort(problem_size);
 
     return 0;
 }

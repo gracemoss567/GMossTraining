@@ -44,6 +44,8 @@ auto write(const fs::path& filename, const std::vector<double>& data) -> void
         std::ranges::copy(data, std::ostream_iterator<double>(file, "\n"));
     } else
         std::clog << "Failed to open file" << filename << std::endl;
+
+    file.close();
 }
 
 auto write(const fs::path& filename, const double& data) -> void
@@ -54,6 +56,8 @@ auto write(const fs::path& filename, const double& data) -> void
         file << data << std::endl;
     } else
         std::clog << "Failed to open file" << filename << std::endl;
+
+    file.close();
 }
 
 namespace make {
